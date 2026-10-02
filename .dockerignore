@@ -1,0 +1,8 @@
+.env
+.env.*
+.git
+.gitignore
+test-supabase.php
+test-book.php
+test-callback.php
+test-enquire.php
