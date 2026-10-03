@@ -4,7 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
+
+// Allow requests only from your Vercel frontend
+$allowedOrigin = "https://diploma-internship.vercel.app";
+
+if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] === $allowedOrigin) {
+    header("Access-Control-Allow-Origin: " . $allowedOrigin);
+}
+
+header("Vary: Origin");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 
